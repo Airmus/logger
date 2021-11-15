@@ -1,9 +1,8 @@
 
-export type Any_Obj = {
-  [propsName: string]: any
-}
+export type Any_Obj = Record<string, any>
 
 export type LogLevel =
+  | 'DETAIL'
   | 'INFO'
   | 'WARN'
   | 'ERROR'
@@ -26,8 +25,8 @@ export declare class Logger {
 
   constructor(options?: LogOptions)
 
-  logErr: <T = any>(...msgs: T[]) => void
-  logInfo: <T = any>(...msgs: T[]) => void
-  logSuccess: <T = any>(...msgs: T[]) => void
-  logWarn: <T = any>(...msgs: T[]) => void
+  logErr: (msgs: IArguments) => void
+  logInfo: (msgs: IArguments) => void
+  logSuccess: (msgs: IArguments) => void
+  logWarn: (msgs: IArguments) => void
 }
